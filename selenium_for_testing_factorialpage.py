@@ -26,12 +26,14 @@ driver.find_element_by_xpath("//button[@id='getFactorial']").click()
 time.sleep(4)
 result=driver.find_element_by_xpath("//p[@id='resultDiv']").text
 print(result)
-if(type(result=='int')):
+if(type(result)==int):
     res=int(result.split( )[-1])
-print(res)
-if(res==math.factorial(input_value)):
-    print("The obtained result match the exepected result.Therefore the test is successfull")
-else:
-    print("The obtained result does not match the expected result.Therefore the test is failed")
+    print(res)
+    if(res==math.factorial(input_value)):
+        print("The obtained result match the exepected result.Therefore the test is successfull")
+    else:
+        print("The obtained result does not match the expected result.Therefore the test is failed")
+else: 
+    print("please enter integer value type")
 
 driver.close()
