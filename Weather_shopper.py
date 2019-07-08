@@ -7,11 +7,13 @@ from selenium import webdriver
 driver=webdriver.Chrome()
 
 #function to check and print wether we have successfully landed on the Sunscreen page or the moisturrizer page
-def statement_print(heading_path):
-    if(heading_path=='Sunscreens'):
+def statement_print(heading_path,temperature):
+    if(heading_path=='Sunscreens' and temperature>=34):
         print("successfully entered the Sunscreen page")
-    else:
+    elif(heading_path=='Moisturizers' and temperature<=19):
         print("successfully entered the Moisturizer page")
+    else:
+        print("Failed to access the site,please check")
         
 if __name__=='__main__':
     #to go the the weather shopper site 
@@ -44,6 +46,6 @@ if __name__=='__main__':
     #find the heading of the page we have landed on    
     heading_path=driver.find_element_by_xpath("//h2").text
     #call the function to print wether we have landed on the sunscreen page or the moisterizer page 
-    statement_print(heading_path)
+    statement_print(heading_path,temperature)
 
 driver.close()
