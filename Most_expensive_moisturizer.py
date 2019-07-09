@@ -17,13 +17,13 @@ else:
     print("Failed to to enter the desired page.")
 time.sleep(2)
 
-#find prices of all the elements
+#select all the elements that has the word price in it
 prices=driver.find_elements_by_xpath("//p[contains(text(),'Price')]")
 
 #assign an initial maximum price and iterate comparing the prices of all the elements to the max price and assign the new maximum price
 max_price=1
 for i in range(6):
-    #get the integer value of price
+    #split and get the integer value of price
     prices_new=int(prices[i].text.split()[-1])
     if(prices_new>max_price):
         max_price=prices_new
