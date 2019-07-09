@@ -11,8 +11,8 @@ time.sleep(3)
 #check if have landed on the correct page
 
 #check if the heading of the page matches so that we can confirm we have landed on the right page
-if(driver.find_element_by_xpath("//H2").text=="Moisturizers"):
-    print("Successfully entered the sunscreen shopping site")
+if(driver.find_element_by_xpath("//h2").text=="Moisturizers"):
+    print("Successfully entered the moisturizer shopping site")
 else:
     print("Failed to to enter the desired page.")
 time.sleep(2)
@@ -30,8 +30,8 @@ for i in range(6):
    
 print(max_price)
 #find the button corresponding to the max price and click it
-driver.find_element_by_xpath("(//P[contains(text(),'%d')])/following-sibling::BUTTON"%max_price).click()
+driver.find_element_by_xpath("(//p[contains(text(),'%d')])/following-sibling::button"%max_price).click()
 time.sleep(2)
 
 #print which moisturizer is added to the cart
-print("The moisturizer added to the cart is",driver.find_element_by_xpath("(//P[contains(text(),'%d')])/preceding-sibling::P"%max_price).text)
+print("The moisturizer added to the cart is",driver.find_element_by_xpath("(//p[contains(text(),'%d')])/preceding-sibling::p"%max_price).text)
