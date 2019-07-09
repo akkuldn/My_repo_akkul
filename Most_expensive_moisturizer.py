@@ -6,10 +6,10 @@ from selenium import webdriver
 
 #create object for webdriver
 driver=webdriver.Chrome()
-driver.get("https://weathershoppers.pythonanywhere.com/moisturizers")
+driver.get("https://weathershopper.pythonanywhere.com/moisturizer")
 time.sleep(3)
-#check if have landed on the correct page
-if(driver.find_element_by_xpath("//H2").text=="Moisturizers"):
+#check if have landed on the correct pages and click
+if(driver.find_element_by_xpath("//H2").text=="Moisturizers"):#change
     print("Successfully entered the sunscreen shopping site")
 else:
     print("Failed to to enter the desired page.")
