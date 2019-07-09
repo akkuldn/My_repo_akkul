@@ -31,3 +31,7 @@ for i in range(6):
 print(max_price)
 #find the button corresponding to the max price and click it
 driver.find_element_by_xpath("(//P[contains(text(),'%d')])/following-sibling::BUTTON"%max_price).click()
+time.sleep(2)
+
+#print which moisturizer is added to the cart
+print("The moisturizer added to the cart is",driver.find_element_by_xpath("(//P[contains(text(),'%d')])/preceding-sibling::P"%max_price).text)
