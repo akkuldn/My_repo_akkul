@@ -8,6 +8,8 @@ from selenium import webdriver
 driver=webdriver.Chrome()
 driver.get("https://weathershoppers.pythonanywhere.com/moisturizers")
 time.sleep(3)
+time.sleep(5)
+#I have changed it
 #check if have landed on the correct page
 if(driver.find_element_by_xpath("//H2").text=="Moisturizers"):
     print("Successfully entered the sunscreen shopping site")
