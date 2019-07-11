@@ -93,7 +93,7 @@ time.sleep(2)
 
 #switch to frame
 iframe=driver.find_element_by_xpath("//iframe[@name='stripe_checkout_app']")
-driver.switch_to_frame(iframe)
+driver.switch_to.frame(iframe)
 
 #Locate and fill in the payment details
 driver.find_element_by_xpath("//input[@type='email']").send_keys("akkul.dn@qxf2.com")
@@ -102,5 +102,17 @@ driver.find_element_by_xpath("//input[@placeholder='MM / YY']").send_keys("0135"
 driver.find_element_by_xpath("//input[@placeholder='CVC']").send_keys("498")
 driver.find_element_by_xpath("//input[@placeholder='ZIP Code']").send_keys("560016")
 
-#Locate and click the submit button
-driver.find_element_by_xpath("//button[@type='submit']").click()
+#Locate the check box and check if its already ticked or not
+checkbox=driver.find_element_by_xpath("//div[contains(@class,'Checkbox-tick')]")
+if(checkbox.is_selected==True):
+    print("Checkbox already ticked")
+    #Locate and click the submit button
+    driver.find_element_by_xpath("//button[@type='submit']").click()
+else:
+    print("checkbox not selected")
+    checkbox.click()
+    print("Checkbox is now selected")
+    time.sleep(3)
+    driver.find_element_by_xpath("//input[@value='+91 ']").send_keys("9900125545")
+    #Locate and click the submit button
+    driver.find_element_by_xpath("//button[@type='submit']").click()
