@@ -16,9 +16,11 @@ else:
     print("Failed to to enter the desired page.")
 time.sleep(2)
 #find all the elements on the page which contains 'Aloe' in it
-aloe=driver.find_elements_by_xpath("//p[contains(text(),'Aloe')]/following-sibling::p")
-almond=driver.find_elements_by_xpath("//p[contains(text(),'Almond')]/following-sibling::p")
-moisture=[almond,aloe]
+aloe=driver.find_elements_by_xpath("//p[contains(text(),'Aloe') or contains(text(),'aloe')]/following-sibling::p")
+almond=driver.find_elements_by_xpath("//p[contains(text(),'Almond') or contains(text(),'almond')]/following-sibling::p")
+moisture=[]
+moisture.append(aloe)
+moisture.append(almond)
 
 #assign an initial minimum price and iterate comparing the prices of all the elements to the minimum price and assign the new minimum price
 min_value=10000

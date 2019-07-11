@@ -103,8 +103,8 @@ iframe=driver.find_element_by_xpath("//iframe[@name='stripe_checkout_app']")
 driver.switch_to.frame(iframe)
 
 #Locate and fill in the payment details
-driver.find_element_by_xpath("//input[@type='email']").send_keys("Enter your name here")
-driver.find_element_by_xpath("//input[@placeholder='Card number']").send_keys("3056 9309 0259 04")
+driver.find_element_by_xpath("//input[@type='email']").send_keys("Enter_mail@yahoo.com")
+driver.find_element_by_xpath("//input[@placeholder='Card number']").send_keys("4242 4242 4242 4242")
 driver.find_element_by_xpath("//input[@placeholder='MM / YY']").send_keys("0135")
 driver.find_element_by_xpath("//input[@placeholder='CVC']").send_keys("498")
 driver.find_element_by_xpath("//input[@placeholder='ZIP Code']").send_keys("560016")
@@ -123,3 +123,10 @@ else:
     driver.find_element_by_xpath("//input[@value='+91 ']").send_keys("9900125545")
     #Locate and click the submit button
     driver.find_element_by_xpath("//button[@type='submit']").click()
+    time.sleep(5)
+    #check if we successfully completed the payment
+    success_check=driver.find_element_by_xpath("//h2").text
+    if(success_check=="PAYMENT SUCCESS"):
+        print("Successfully completed the payment")
+    else:
+        print("Failed to complete the payment")
